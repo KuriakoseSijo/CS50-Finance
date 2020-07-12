@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Symbol</th>
+      <th scope="col">Name</th>
+      <th scope="col">Shares</th>
+      <th scope="col">Price</th>
+       <th scope="col">Total</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for i in range(length) %}
+
+    <tr>
+      <td>{{ current_user_portfolio_rows[i]['symbol'] }}</td>
+      <td>{{ current_user_portfolio_rows[i]['name'] }}</td>
+      <td>{{ current_user_portfolio_rows[i]['SUM(shares)'] }}</td>
+      <td>${{ price[i]}}</td>
+      <td>${{ total[i]}}</td>
+       {% endfor %}
+    </tr>
+    <tr>
+      <td>Cash</td>
+       <td colspan="3"> </td>
+      <td>${{ cash}}</td>
+    </tr>
+    <tr>
+      <td>Total</td>
+       <td colspan="3"> </td>
+      <td><b> ${{ all_total}}</b></td>
+    </tr>
+</tbody>
+
+</table>
+
+{% endblock %}

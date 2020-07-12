@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Symbol</th>
+      <th scope="col">Share</th>
+      <th scope="col">Price</th>
+      <th scope="col">Transacted</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for i in range(length) %}
+    <tr>
+      <td>{{ current_user_history[i]['symbol'] }}</td>
+      <td>{{ current_user_history[i]['share'] }}</td>
+      <td>${{ current_user_history[i]['price'] }}</td>
+      <td>{{ current_user_history[i]['transacted'] }}</td>
+    </tr>
+    {% endfor %}
+</tbody>
+
+
+</table>
+
+
+
+
+
+
+
+
+{% endblock %}
